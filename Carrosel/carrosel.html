@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>carrosel</title>
+</head>
+
+<body>
+    <div class="carrosel">
+        <div class="background">
+            <div class="fotos" id="selec-1">
+                <div class="texto">
+                    <h1>Texto sobre a Foto 1</h1>
+                </div>
+                <img src="foto1.jpg" alt="Foto 1" class="foto">
+            </div>
+            <div class="fotos" id="selec-2">
+                <div class="texto">
+                    <h1>Texto sobre a Foto 2</h1>
+                </div>
+                <img src="foto2.jpg" alt="Foto 2" class="foto">
+            </div>
+        </div>
+        <div class="botoes">
+            <button class="btn-carrosel" data-index="0" id="btn-1"></button>
+            <button class="btn-carrosel" data-index="1" id="btn-2"></button>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const buttons = document.querySelectorAll(".btn-carrosel");
+        const background = document.querySelector(".background");
+        const fotos = document.querySelectorAll(".fotos");
+        let currentIndex = 0;
+        let interval;
+        let isDragging = false;
+        let initialPosition = 0;
+
+        function changePhoto(index) {
+            const offset = index * -100;
+            background.style.transition = "transform 0.3s ease";
+            background.style.transform = `translateX(${offset}%)`;
+            currentIndex = index;
+            resetInterval();
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === "ArrowLeft") {
+                const newIndex = (currentIndex - 1 + fotos.length) % fotos.length;
+                changePhoto(newIndex);
+            } else if (event.key === "ArrowRight") {
+                const newIndex = (currentIndex + 1) % fotos.length;
+                changePhoto(newIndex);
+            }
+        }
+
+        document.addEventListener("keydown", handleKeyPress);
+
+        buttons.forEach((button, index) => {
+            button.addEventListener("click", () => {
+                changePhoto(index);
+            });
+        });
+
+        function startCarousel() {
+            interval = setInterval(() => {
+                currentIndex = (currentIndex + 1) % fotos.length;
+                changePhoto(currentIndex);
+            }, 5000);
+        }
+
+        function resetInterval() {
+            clearInterval(interval);
+            setTimeout(() => {
+                background.style.transition = "";
+            }, 300);
+            startCarousel();
+        }
+
+        startCarousel();
+
+        background.addEventListener("mousedown", (e) => {
+            isDragging = true;
+            initialPosition = e.clientX;
+            background.style.transition = "";
+            e.preventDefault();
+        });
+
+        background.addEventListener("mouseup", () => {
+            isDragging = false;
+            resetInterval();
+        });
+
+        background.addEventListener("mousemove", (e) => {
+            if (isDragging) {
+                const movement = e.clientX - initialPosition;
+                const newIndex = currentIndex - Math.sign(movement);
+                const newIndexClamped = Math.min(Math.max(newIndex, 0), fotos.length - 1);
+                if (newIndexClamped !== currentIndex) {
+                    changePhoto(newIndexClamped);
+                }
+                isDragging = false;
+            }
+        });
+
+        background.addEventListener("mouseleave", () => {
+            isDragging = false;
+            resetInterval();
+        });
+    });
+</script>
+
+</html>

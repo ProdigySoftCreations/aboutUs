@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.carrosel {
+    position: relative;
+    max-width: 1920px;
+    max-height: 993px;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.background {
+    display: flex;
+    transition: transform 0.5s ease;
+    position: relative;
+}
+
+.fotos {
+    flex: 0 0 100%;
+    max-width: 100%;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.foto img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    opacity: 0.2;
+    transition: opacity 0.5s ease;
+    cursor: pointer;
+}
+
+.botoes {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    padding: 40px;
+    text-align: center;
+}
+
+.btn-carrosel {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 3px 30px;
+    background-color: rgb(0, 174, 255);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+[id^="btn-"]:hover {
+    background-color: rgb(3, 76, 110);
+}
+
+[id^="btn-"]:active {
+    background-color: rgb(255, 255, 255);
+    padding: 3px 25px;
+}
+
+.texto{
+    display: flex;
+    justify-content: center;
+}
+h1{
+    position: absolute;
+    padding:10px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: rgba(255, 255, 255, 0.404);
+}
