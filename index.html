@@ -41,13 +41,16 @@
             <div class="background">
                 <div class="fotos" id="selec-1">
                     <div class="texto">
-                        <h1>Texto sobre a Foto 1</h1>
+                        <h1>Titulo 1</h1>
+                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, repellendus!</span>
                     </div>
                     <img src="assets/foto1.jpg" alt="Foto 1" class="foto">
                 </div><!--fotos / selec-1-->
                 <div class="fotos" id="selec-2">
                     <div class="texto">
-                        <h1>Texto sobre a Foto 2</h1>
+                        <h1>Titulo 2</h1>
+                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, similique!</span>
+
                     </div><!--texto-->
                     <img src="assets/foto2.jpg" alt="Foto 2" class="foto">
                 </div><!--fotos / selec-2-->
@@ -103,7 +106,7 @@
             interval = setInterval(() => {
                 currentIndex = (currentIndex + 1) % fotos.length;
                 changePhoto(currentIndex);
-            }, 5000);
+            }, 15000); //Atualizado de 5 para 15 segundos
         }
 
         function resetInterval() {

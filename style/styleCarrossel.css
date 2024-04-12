@@ -62,12 +62,12 @@
     padding: 3px 25px;
 }
 
-.texto{
-    display: flex;
-    justify-content: center;
-}
-h1{
+/* Atualizado TEXTO */
+.texto {
     position: absolute;
-    padding:10px;
-    background-color: rgba(255, 255, 255, 0.404);
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%);
+    text-align: center;
+    color: white;
 }
