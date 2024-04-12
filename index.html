@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
     <style>
-        
+
 
     </style>
 </head>
@@ -75,6 +75,8 @@
         let interval;
         let isDragging = false;
         let initialPosition = 0;
+        let touchStartX = 0;
+        let touchMoveX = 0;
 
         function changePhoto(index) {
             const offset = index * -100;
@@ -106,7 +108,7 @@
             interval = setInterval(() => {
                 currentIndex = (currentIndex + 1) % fotos.length;
                 changePhoto(currentIndex);
-            }, 15000); //Atualizado de 5 para 15 segundos
+            }, 15000); // Atualizado de 5 para 15 segundos
         }
 
         function resetInterval() {
@@ -119,21 +121,23 @@
 
         startCarousel();
 
-        background.addEventListener("mousedown", (e) => {
+        background.addEventListener("touchstart", (e) => {
             isDragging = true;
-            initialPosition = e.clientX;
+            initialPosition = e.touches[0].clientX;
+            touchStartX = e.touches[0].clientX;
             background.style.transition = "";
             e.preventDefault();
         });
 
-        background.addEventListener("mouseup", () => {
+        background.addEventListener("touchend", () => {
             isDragging = false;
             resetInterval();
         });
 
-        background.addEventListener("mousemove", (e) => {
+        background.addEventListener("touchmove", (e) => {
             if (isDragging) {
-                const movement = e.clientX - initialPosition;
+                touchMoveX = e.touches[0].clientX;
+                const movement = touchMoveX - touchStartX;
                 const newIndex = currentIndex - Math.sign(movement);
                 const newIndexClamped = Math.min(Math.max(newIndex, 0), fotos.length - 1);
                 if (newIndexClamped !== currentIndex) {
@@ -148,6 +152,7 @@
             resetInterval();
         });
     });
+
 </script>
 
 </html>
