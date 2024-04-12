@@ -75,8 +75,6 @@
         let interval;
         let isDragging = false;
         let initialPosition = 0;
-        let touchStartX = 0;
-        let touchMoveX = 0;
 
         function changePhoto(index) {
             const offset = index * -100;
@@ -108,7 +106,7 @@
             interval = setInterval(() => {
                 currentIndex = (currentIndex + 1) % fotos.length;
                 changePhoto(currentIndex);
-            }, 15000); // Atualizado de 5 para 15 segundos
+            }, 15000); //Atualizado de 5 para 15 segundos
         }
 
         function resetInterval() {
@@ -121,23 +119,33 @@
 
         startCarousel();
 
-        background.addEventListener("touchstart", (e) => {
+        background.addEventListener("mousedown", handleDragStart);
+        background.addEventListener("touchstart", handleDragStart);
+
+        function handleDragStart(e) {
             isDragging = true;
-            initialPosition = e.touches[0].clientX;
-            touchStartX = e.touches[0].clientX;
+            initialPosition = e.type === "mousedown" ? e.clientX : e.touches[0].clientX;
             background.style.transition = "";
             e.preventDefault();
-        });
+        }
 
-        background.addEventListener("touchend", () => {
-            isDragging = false;
-            resetInterval();
-        });
+        document.addEventListener("mouseup", handleDragEnd);
+        document.addEventListener("touchend", handleDragEnd);
 
-        background.addEventListener("touchmove", (e) => {
+        function handleDragEnd() {
             if (isDragging) {
-                touchMoveX = e.touches[0].clientX;
-                const movement = touchMoveX - touchStartX;
+                isDragging = false;
+                resetInterval();
+            }
+        }
+
+        background.addEventListener("mousemove", handleDragMove);
+        background.addEventListener("touchmove", handleDragMove);
+
+        function handleDragMove(e) {
+            if (isDragging) {
+                const clientX = e.type === "mousemove" ? e.clientX : e.touches[0].clientX;
+                const movement = clientX - initialPosition;
                 const newIndex = currentIndex - Math.sign(movement);
                 const newIndexClamped = Math.min(Math.max(newIndex, 0), fotos.length - 1);
                 if (newIndexClamped !== currentIndex) {
@@ -145,11 +153,13 @@
                 }
                 isDragging = false;
             }
-        });
+        }
 
         background.addEventListener("mouseleave", () => {
-            isDragging = false;
-            resetInterval();
+            if (isDragging) {
+                isDragging = false;
+                resetInterval();
+            }
         });
     });
 
