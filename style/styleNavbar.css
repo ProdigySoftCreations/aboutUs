@@ -1,0 +1,73 @@
+
+
+.navbar {
+    position: fixed;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    align-items: center;
+    width: calc(100% - 20px);
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.navbar:hover {
+    background-color: rgba(255, 255, 255, 0.527);
+    transition: 200ms;
+    box-shadow: 1px 0px 10px 1px rgba(0, 0, 0, 0.7);
+}
+
+.navbar .logo {
+    width: 70px;
+    height: 70px;
+    background-image: url(../assets/logoPSC.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    border-radius: 100%;
+    margin-left: 10px;
+}
+
+
+.navbar ul {
+    display: flex;
+    list-style-position: inside;
+    list-style: none;
+    flex-direction: row;
+}
+
+.navbar ul li {
+    margin-left: 20px;
+}
+
+.navbar ul li a {
+    background-color: rgba(255, 255, 255, 0.39);
+    padding: 15px;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.navbar ul li a:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    transition: 200ms;
+    
+}
+
+.navbar ul li:last-child {
+    margin-right: 10px;
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        height: 80px;
+        align-items: center;
+        width: calc(100% - 20px);
+        margin: 10px;
+        border-radius: 10px;
+    }
+}

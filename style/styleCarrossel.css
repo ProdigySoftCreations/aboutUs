@@ -1,15 +1,12 @@
-body {
-    margin: 0;
-    box-sizing: border-box;
-}
-
+/**/
 .carrosel {
     position: relative;
-    max-width: 1920px;
-    max-height: 993px;
+    max-width: 100%;
+    max-height: 85vh;
     width: 100%;
     margin: 0 auto;
     overflow: hidden;
+    z-index: 0;
 }
 
 .background {
@@ -57,6 +54,7 @@ body {
 
 [id^="btn-"]:hover {
     background-color: rgb(3, 76, 110);
+    transition: 200ms;
 }
 
 [id^="btn-"]:active {
@@ -71,6 +69,5 @@ body {
 h1{
     position: absolute;
     padding:10px;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: rgba(255, 255, 255, 0.404);
 }

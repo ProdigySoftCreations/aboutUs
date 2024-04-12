@@ -1,34 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>carrosel</title>
+    <title>Prodigy Soft Creations</title>
+
+    <!--CSS-->
+    <link rel="stylesheet" href="style/styleCarrossel.css">
+    <link rel="stylesheet" href="style/styleNavbar.css">
+    <link rel="stylesheet" href="style/styleGeral.css">
+
+
+    <!--FONTES-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <style>
+        
+
+    </style>
 </head>
 
 <body>
-    <div class="carrosel">
-        <div class="background">
-            <div class="fotos" id="selec-1">
-                <div class="texto">
-                    <h1>Texto sobre a Foto 1</h1>
-                </div>
-                <img src="foto1.jpg" alt="Foto 1" class="foto">
+    <div class="container">
+        <nav class="navbar">
+            <div class="logo">
             </div>
-            <div class="fotos" id="selec-2">
-                <div class="texto">
-                    <h1>Texto sobre a Foto 2</h1>
-                </div>
-                <img src="foto2.jpg" alt="Foto 2" class="foto">
+            <div class="buttons">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Quem Somos</a></li>
+                    <li><a href="#">Entre em contato</a></li>
+                </ul>
             </div>
-        </div>
-        <div class="botoes">
-            <button class="btn-carrosel" data-index="0" id="btn-1"></button>
-            <button class="btn-carrosel" data-index="1" id="btn-2"></button>
-        </div>
-    </div>
+        </nav>
+
+        <div class="carrosel">
+            <div class="background">
+                <div class="fotos" id="selec-1">
+                    <div class="texto">
+                        <h1>Texto sobre a Foto 1</h1>
+                    </div>
+                    <img src="assets/foto1.jpg" alt="Foto 1" class="foto">
+                </div><!--fotos / selec-1-->
+                <div class="fotos" id="selec-2">
+                    <div class="texto">
+                        <h1>Texto sobre a Foto 2</h1>
+                    </div><!--texto-->
+                    <img src="assets/foto2.jpg" alt="Foto 2" class="foto">
+                </div><!--fotos / selec-2-->
+            </div><!--background-carrosel-->
+            <div class="botoes">
+                <button class="btn-carrosel" data-index="0" id="btn-1"></button>
+                <button class="btn-carrosel" data-index="1" id="btn-2"></button>
+            </div>
+        </div><!--carrossel-->
+
+
+    </div><!--Container-->
 
 </body>
 
