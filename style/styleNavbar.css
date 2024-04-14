@@ -1,73 +1,139 @@
-
-
-.navbar {
-    position: fixed;
-    z-index: 100;
+.logo {
     display: flex;
-    justify-content: space-between;
-    height: 80px;
     align-items: center;
+}
+
+.logo-img {
+    background-color: red;
+    width: 60px;
+    height: 60px;
+    border-radius: 20px;
+    background: url(../assets/logoPSC.jpg) no-repeat center center;
+    background-size: cover;
+}
+
+nav {
+    z-index: 100;
     width: calc(100% - 20px);
-    margin: 10px;
     border-radius: 10px;
-}
-
-.navbar:hover {
-    background-color: rgba(255, 255, 255, 0.527);
-    transition: 200ms;
-    box-shadow: 1px 0px 10px 1px rgba(0, 0, 0, 0.7);
-}
-
-.navbar .logo {
-    width: 70px;
-    height: 70px;
-    background-image: url(../assets/logoPSC.jpg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    border-radius: 100%;
-    margin-left: 10px;
-}
-
-
-.navbar ul {
+    margin: 10px;
+    position: fixed;
     display: flex;
-    list-style-position: inside;
+    justify-content: space-around;
+    align-items: center;
+    height: 8vh;
+    background: rgba(235, 235, 235, 0.205);
+}
+
+.nav-list {
     list-style: none;
-    flex-direction: row;
+    display: flex;
 }
 
-.navbar ul li {
-    margin-left: 20px;
+.nav-list li {
+    letter-spacing: 3px;
+    margin-left: 32px;
 }
 
-.navbar ul li a {
-    background-color: rgba(255, 255, 255, 0.39);
-    padding: 15px;
-    color: black;
+.nav-list a {
+    color: #fff;
     text-decoration: none;
-    border-radius: 5px;
+    transition: 200ms;
 }
 
-.navbar ul li a:hover {
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
+.nav-list a:hover {
+    color: rgb(56, 142, 255);
     transition: 200ms;
+}
+
+.mobile-menu {
+    display: none;
+    cursor: pointer;
+}
+
+.mobile-menu div {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    background: url(../assets/rede.png) no-repeat center center;
+    background-size: cover;
+    transition: 200ms;
+}
+
+.mobile-menu.active .img-menu { /* Animação de girar o icone do menu */
+    transform: rotate(45deg);
+    transition: 200ms;
+}
+
+@media (max-width: 1280px) {
+    nav {
+        height: 78px;
+        
+    }
     
 }
 
-.navbar ul li:last-child {
-    margin-right: 10px;
-}
-
-@media (max-width: 600px) {
-    .navbar {
-        display: flex;
+/* Responsivo */
+@media (max-width: 700px) {
+    nav {
         justify-content: space-between;
-        height: 80px;
+        height: 8vh;       
+    }
+
+    .nav-list {
+        position: absolute;
+        top: 8vh;
+        right: 0;
+        width: 50vw;
+        height: 25vh;
+        flex-direction: column;
+        justify-content: space-around;
         align-items: center;
-        width: calc(100% - 20px);
-        margin: 10px;
         border-radius: 10px;
+        margin: 10px 0px 10px 0;
+        transform: translateX(100%);
+        transition: transform 300ms ease-in;
+        background: rgba(235, 235, 235, 0.205);
+
+    }
+
+    .nav-list li {
+        margin-left: 0;
+        opacity: 0;
+    }
+
+    .mobile-menu {
+        display: block;
+        margin-right: 10px;
+    }
+
+    .logo-img {
+        margin-left: 10px;
     }
 }
+
+@media (max-width: 400px) {
+    .logo-img {
+        height: 6vh;
+        width: 15vw;
+    }
+}
+
+.nav-list.active {
+    transform: translateX(0);
+}
+
+/* Animações */
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="style/styleCarrossel.css">
     <link rel="stylesheet" href="style/styleNavbar.css">
     <link rel="stylesheet" href="style/styleGeral.css">
+    <link rel="stylesheet" href="style/styleFormulario.css">
 
 
     <!--FONTES-->
@@ -17,42 +18,50 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
-    <style>
-
-
-    </style>
 </head>
 
 <body>
     <div class="container">
-        <nav class="navbar">
-            <div class="logo">
-            </div>
-            <div class="buttons">
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Quem Somos</a></li>
-                    <li><a href="#">Entre em contato</a></li>
+
+        <header>
+            <nav>
+                <div class="logo">
+                    <div class="logo-img"></div>
+                </div>
+
+                <div class="mobile-menu">
+                    <div class="img-menu"></div>
+                </div>
+                <ul class="nav-list">
+                    <li><a href="/">Início</a></li>
+                    <li><a href="/">Sobre</a></li>
+                    <li><a href="/">Contato</a></li>
+                    <li><a href="/">Projetos</a></li>
                 </ul>
-            </div>
-        </nav>
+            </nav>
+        </header>
 
         <div class="carrosel">
             <div class="background">
                 <div class="fotos" id="selec-1">
-                    <div class="texto">
-                        <h1>Titulo 1</h1>
-                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, repellendus!</span>
+                    
+                    <div class="foto foto1">
+                        <div class="texto texto-foto1">
+                            <h1>Titulo 1</h1>
+                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, repellendus!</span>
+                        </div>
                     </div>
-                    <img src="assets/foto1.jpg" alt="Foto 1" class="foto">
+
                 </div><!--fotos / selec-1-->
                 <div class="fotos" id="selec-2">
-                    <div class="texto">
-                        <h1>Titulo 2</h1>
-                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, similique!</span>
 
-                    </div><!--texto-->
-                    <img src="assets/foto2.jpg" alt="Foto 2" class="foto">
+                    <div class="foto foto2">
+                        <div class="texto texto-foto2">
+                            <h1>Titulo 2</h1>
+                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, similique!</span>    
+                        </div><!--texto-->
+                    </div>
+
                 </div><!--fotos / selec-2-->
             </div><!--background-carrosel-->
             <div class="botoes">
@@ -60,109 +69,26 @@
                 <button class="btn-carrosel" data-index="1" id="btn-2"></button>
             </div>
         </div><!--carrossel-->
+        <div class="container-form">
+            <h2>Faça seu pedido</h2>
+            <form action="processar_pedido.php" method="post">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required><br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
+                <label for="pedido">Pedido:</label>
+                <textarea id="pedido" name="pedido" rows="4" required></textarea><br><br>
+                <input type="submit" value="Enviar Pedido">
+            </form>
+        </div>
 
 
     </div><!--Container-->
 
 </body>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const buttons = document.querySelectorAll(".btn-carrosel");
-        const background = document.querySelector(".background");
-        const fotos = document.querySelectorAll(".fotos");
-        let currentIndex = 0;
-        let interval;
-        let isDragging = false;
-        let initialPosition = 0;
+<script src="jscript/mobile-navbar.js"></script>
+<script src="jscript/carrossel.js"></script>
 
-        function changePhoto(index) {
-            const offset = index * -100;
-            background.style.transition = "transform 0.3s ease";
-            background.style.transform = `translateX(${offset}%)`;
-            currentIndex = index;
-            resetInterval();
-        }
-
-        function handleKeyPress(event) {
-            if (event.key === "ArrowLeft") {
-                const newIndex = (currentIndex - 1 + fotos.length) % fotos.length;
-                changePhoto(newIndex);
-            } else if (event.key === "ArrowRight") {
-                const newIndex = (currentIndex + 1) % fotos.length;
-                changePhoto(newIndex);
-            }
-        }
-
-        document.addEventListener("keydown", handleKeyPress);
-
-        buttons.forEach((button, index) => {
-            button.addEventListener("click", () => {
-                changePhoto(index);
-            });
-        });
-
-        function startCarousel() {
-            interval = setInterval(() => {
-                currentIndex = (currentIndex + 1) % fotos.length;
-                changePhoto(currentIndex);
-            }, 15000); //Atualizado de 5 para 15 segundos
-        }
-
-        function resetInterval() {
-            clearInterval(interval);
-            setTimeout(() => {
-                background.style.transition = "";
-            }, 300);
-            startCarousel();
-        }
-
-        startCarousel();
-
-        background.addEventListener("mousedown", handleDragStart);
-        background.addEventListener("touchstart", handleDragStart);
-
-        function handleDragStart(e) {
-            isDragging = true;
-            initialPosition = e.type === "mousedown" ? e.clientX : e.touches[0].clientX;
-            background.style.transition = "";
-            e.preventDefault();
-        }
-
-        document.addEventListener("mouseup", handleDragEnd);
-        document.addEventListener("touchend", handleDragEnd);
-
-        function handleDragEnd() {
-            if (isDragging) {
-                isDragging = false;
-                resetInterval();
-            }
-        }
-
-        background.addEventListener("mousemove", handleDragMove);
-        background.addEventListener("touchmove", handleDragMove);
-
-        function handleDragMove(e) {
-            if (isDragging) {
-                const clientX = e.type === "mousemove" ? e.clientX : e.touches[0].clientX;
-                const movement = clientX - initialPosition;
-                const newIndex = currentIndex - Math.sign(movement);
-                const newIndexClamped = Math.min(Math.max(newIndex, 0), fotos.length - 1);
-                if (newIndexClamped !== currentIndex) {
-                    changePhoto(newIndexClamped);
-                }
-                isDragging = false;
-            }
-        }
-
-        background.addEventListener("mouseleave", () => {
-            if (isDragging) {
-                isDragging = false;
-                resetInterval();
-            }
-        });
-    });
-
-</script>
 
 </html>
