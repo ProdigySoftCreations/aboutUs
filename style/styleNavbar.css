@@ -4,14 +4,13 @@
 }
 
 .logo-img {
+    background-color: red;
     width: 60px;
     height: 60px;
     border-radius: 20px;
     background: url(../assets/logoPSC.svg) no-repeat center center;
     background-size: cover;
-    z-index: 2;
 }
-
 
 .nome{
     color: #fff;
@@ -19,7 +18,6 @@
     font-weight: 600;
     justify-self: flex-start
 }
-
 nav {
     z-index: 100;
     width: calc(100% - 20px);
@@ -27,7 +25,7 @@ nav {
     margin: 10px;
     position: fixed;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
     height: 8vh;
     background: rgba(235, 235, 235, 0.205);
@@ -36,7 +34,6 @@ nav {
 .nav-list {
     list-style: none;
     display: flex;
-    justify-self: flex-end;
 }
 
 .nav-list li {
@@ -89,13 +86,6 @@ nav {
         height: 8vh;       
     }
 
-    .nome{
-        color: #fff;
-        font-size:1.2rem;
-        font-weight: 600;
-        justify-self: flex-start
-    }
-
     .nav-list {
         position: absolute;
         top: 8vh;
@@ -111,6 +101,13 @@ nav {
         transition: transform 300ms ease-in;
         background: rgba(235, 235, 235, 0.205);
 
+    }
+
+    .nome{
+        color: #fff;
+        font-size:1.2rem;
+        font-weight: 600;
+        justify-self: flex-start
     }
 
     .nav-list li {
@@ -130,10 +127,10 @@ nav {
 
 @media (max-width: 400px) {
     .logo-img {
-        height: 7vh;
-        width: 12vw;
+        height: 6vh;
+        width: 15vw;
     }
-
+}
 
 .nome{
     color: #fff;
@@ -141,7 +138,6 @@ nav {
     font-weight: 600;
     justify-self: flex-start
 }
-
 .nav-list.active {
     transform: translateX(0);
 }
@@ -159,4 +155,4 @@ nav {
         transform: translateX(0);
     }
 }
-}
+
