@@ -10,7 +10,9 @@ Este repositório é privado e acessível apenas aos administradores da empresa.
 
 - **index.html:
 - **assets/:
-- **docs/:
+- **jscript/:
+- **PHP/:
+- **style/:
 
 ## Como Contribuir
 
