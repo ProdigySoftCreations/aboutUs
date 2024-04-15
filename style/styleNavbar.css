@@ -4,12 +4,20 @@
 }
 
 .logo-img {
-    background-color: red;
     width: 60px;
     height: 60px;
     border-radius: 20px;
-    background: url(../assets/logoPSC.jpg) no-repeat center center;
+    background: url(../assets/logoPSC.svg) no-repeat center center;
     background-size: cover;
+    z-index: 2;
+}
+
+
+.nome{
+    color: #fff;
+    font-size:1.5rem;
+    font-weight: 600;
+    justify-self: flex-start
 }
 
 nav {
@@ -19,7 +27,7 @@ nav {
     margin: 10px;
     position: fixed;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     height: 8vh;
     background: rgba(235, 235, 235, 0.205);
@@ -28,6 +36,7 @@ nav {
 .nav-list {
     list-style: none;
     display: flex;
+    justify-self: flex-end;
 }
 
 .nav-list li {
@@ -80,6 +89,13 @@ nav {
         height: 8vh;       
     }
 
+    .nome{
+        color: #fff;
+        font-size:1.2rem;
+        font-weight: 600;
+        justify-self: flex-start
+    }
+
     .nav-list {
         position: absolute;
         top: 8vh;
@@ -114,9 +130,16 @@ nav {
 
 @media (max-width: 400px) {
     .logo-img {
-        height: 6vh;
-        width: 15vw;
+        height: 7vh;
+        width: 12vw;
     }
+
+
+.nome{
+    color: #fff;
+    font-size:1.2rem;
+    font-weight: 600;
+    justify-self: flex-start
 }
 
 .nav-list.active {
@@ -136,4 +159,4 @@ nav {
         transform: translateX(0);
     }
 }
-
+}

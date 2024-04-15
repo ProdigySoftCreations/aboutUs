@@ -13,6 +13,15 @@ document.addEventListener("DOMContentLoaded", function () {
         background.style.transform = `translateX(${offset}%)`;
         currentIndex = index;
         resetInterval();
+
+        // Aumentando o tamanho do botão relacionado ao índice
+        buttons.forEach((button, i) => {
+            if (i === index) {
+                button.style.padding = "5px 30px"; 
+            } else {
+                button.style.padding = ""; // Reverte para o tamanho padrão
+            }
+        });
     }
 
     function handleKeyPress(event) {
@@ -92,4 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
             resetInterval();
         }
     });
+
+    // Chama a função changePhoto no primeiro acesso ao site
+    changePhoto(currentIndex);
 });
