@@ -70,16 +70,15 @@ nav {
     transform: rotate(45deg);
     transition: 200ms;
 }
+/* Responsivo */
 
 @media (max-width: 1280px) {
     nav {
-        height: 78px;
-        
+        height: 78px;    
     }
     
 }
 
-/* Responsivo */
 @media (max-width: 700px) {
     nav {
         justify-content: space-between;
@@ -127,8 +126,8 @@ nav {
 
 @media (max-width: 400px) {
     .logo-img {
-        height: 6vh;
-        width: 15vw;
+        height: 50px;
+        width: 50px;
     }
 }
 
@@ -136,7 +135,7 @@ nav {
     color: #fff;
     font-size:1.2rem;
     font-weight: 600;
-    justify-self: flex-start
+    text-align: center;
 }
 .nav-list.active {
     transform: translateX(0);
