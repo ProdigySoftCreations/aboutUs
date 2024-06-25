@@ -1,0 +1,28 @@
+:root {
+  --cor-branco: #fdfdf5;
+  --cor-primaria: #193445;
+  --cor-secundaria: #c08e30;
+}
+
+* > * {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Days One", sans-serif;
+  font-style: normal;
+}
+
+* > *:not(h1, h2, h3, h4, h5, h6),
+button,
+a {
+  font-family: "Poppins", sans-serif;
+}
