@@ -1,13 +1,16 @@
 :root {
   --cor-branco: #fdfdf5;
+  --cor-preto: #1a1a1a;
   --cor-primaria: #193445;
   --cor-secundaria: #c08e30;
+  /* --cor-primaria: #013255;
+  --cor-secundaria: #FF4365;
+  --cor-terciaria: #0D0C1D; */
 }
 
 * > * {
   box-sizing: border-box;
   margin: 0;
-  min-width: 0;
   scroll-behavior: smooth;
 }
 
@@ -18,7 +21,6 @@ h4,
 h5,
 h6 {
   font-family: "Days One", sans-serif;
-  font-style: normal;
 }
 
 * > *:not(h1, h2, h3, h4, h5, h6),
