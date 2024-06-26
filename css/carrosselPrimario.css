@@ -27,24 +27,25 @@
   height: 6px;
 }
 
-.carrosselPrimario-celula{
+.carrosselPrimario-celula {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 10%;
 }
 
-.carrosselPrimario-titulo{
+.carrosselPrimario-titulo {
   font-size: 2rem;
   color: var(--cor-branco);
 }
 
-.carrosselPrimario-descricao{
+.carrosselPrimario-descricao {
   color: var(--cor-branco);
   font-weight: 400;
   font-style: italic;
 }
 
-.carrosselPrimario-button{
+.carrosselPrimario-button {
   background: var(--cor-secundaria);
   color: var(--cor-branco);
   padding: 0 20px;
@@ -58,7 +59,7 @@
   font-weight: 600;
   text-align: left;
 
-  &:hover{
+  &:hover {
     background: var(--cor-branco);
     color: var(--cor-secundaria);
     scale: 1.1;
@@ -68,15 +69,14 @@
 /* Slide 1 */
 .a {
   background: var(--cor-secundaria);
-  padding: 0 10%;
 }
 
-.logoSVG{
-  width: 300px; 
-  height: 300px; 
+.logoSVG {
+  width: 300px;
+  height: 300px;
 }
 
-svg{
+svg {
   width: 100%;
   height: 100%;
 }
@@ -85,41 +85,29 @@ path {
   --timer: 3s;
   stroke: var(--cor-branco);
   fill: var(--cor-branco);
-  stroke-width: 2px;
+  stroke-width: 3px;
   stroke-dasharray: 55;
   stroke-dashoffset: 0;
   animation: animateStroke var(--timer) linear infinite;
-  animation-direction: alternate; 
+  animation-direction: alternate;
 }
 
 @keyframes animateStroke {
-  0%{
+  0% {
     stroke-dashoffset: 55;
   }
-  100%{
+  100% {
     stroke-dashoffset: 0;
   }
 }
 
-
 /* Slide 2 */
 .b {
   background: var(--cor-primaria);
-  position: relative;
-  overflow: hidden;
-}
-
-.textoB{
-  padding: 0 10%;
-}
-.carrosselPrimario-video{
-  min-width: 100%;
-  min-height: 100%;
-  top: 0;
-  left: 0;
-  position: absolute;
-  z-index: -1;
-  opacity: .7;
+  background: linear-gradient(var(--cor-primaria), var(--cor-primaria)),
+    url(../assets/imgs/placeholder.jpg) no-repeat center center;
+  background-blend-mode: multiply;
+  background-size: cover;
 }
 
 @media motion-reduce {
@@ -130,12 +118,12 @@ path {
 
 @media (max-width: 768px) {
   .carrosselPrimario-celula {
-    align-items: center; 
-    padding: 10% 5%; 
+    align-items: center;
+    padding: 10% 5%;
   }
 
   .carrosselPrimario-titulo {
-    font-size: 1.5rem; 
+    font-size: 1.5rem;
   }
 
   .carrosselPrimario-descricao {
@@ -143,10 +131,10 @@ path {
   }
 
   .carrosselPrimario-button {
-    padding: 0 10px; 
-    height: 40px; 
+    padding: 0 10px;
+    height: 40px;
     width: 150px;
-    margin-top: 20px; 
+    margin-top: 20px;
   }
 
   .logoSVG {
