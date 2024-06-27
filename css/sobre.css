@@ -2,146 +2,203 @@
   background: var(--cor-primaria);
   padding: 65px 10%;
   color: var(--cor-branco);
+}
+
+.tituloSection {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  max-width: calc(50% - 2.5rem);
+  word-wrap: break-word;
+}
+
+.container {
+  display: flex;
+  align-items: stretch;
+}
+
+.wrapper {
+  --pading-wrapper: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  flex: 1;
+}
+
+.esquerda,
+.direita {
+  padding: var(--pading-wrapper) 0;
+  flex: 1;
+  margin: auto auto;
+}
+
+.opcao {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.quadrado {
+  width: 100px;
+  aspect-ratio: 1;
+  background: var(--cor-secundaria);
+  display: grid;
+  flex: 0 0 auto;
+  cursor: pointer;
+  border-radius: 5px;
+  place-items: center;
+  object-fit: cover;
+  transition: 200ms;
+}
+
+.quadrado svg {
+  width: 70%;
+  height: 70%;
+  stroke: var(--cor-branco);
+  stroke-width: 50px;
+}
+
+.quadrado:hover,
+.quadrado:focus {
+  background: var(--cor-branco);
+  transform: scale(1.1);
+}
+
+.quadrado:hover svg,
+.quadrado:focus svg {
+  stroke: var(--cor-preto);
+}
+
+.quadrado:active {
+  scale: 0.9; /* Diminui um pouco o tamanho quando clicado */
+}
+
+.ativado {
+  background: var(--cor-branco);
+}
+
+.ativado svg {
+  stroke: var(--cor-preto);
+}
+
+.separador {
+  width: 5px;
+  background: var(--cor-branco);
+  margin: 0 2rem;
+  border-radius: 5px;
+}
+
+.paragrafo {
+  position: relative;
+  background: var(--cor-secundaria);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.paragrafos {
+  display: none;
+}
+
+.paragrafos.ativo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.paragrafos.ativo > * {
+  width: 100%; 
+  flex-grow: 1; 
+  max-width: none;
+  padding: 1rem 2rem;
+  border: 0;
+}
+
+
+.paragrafo::before {
+  font-family: "Days One", sans-serif;
+  content: "\201C";
+  font-size: 5rem;
+  color: var(--cor-branco);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-35%);
+}
+
+.sobreBotao {
+  background: var(--cor-secundaria);
+  color: var(--cor-branco);
+
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  transition: 300ms;
+}
+
+.sobreBotao:hover,
+.sobreBotao:focus {
+  background: var(--cor-branco);
+  color: var(--cor-primaria);
+  border-radius: 0;
+}
+
+.sobreBotao:active {
+  border-radius: 50px;
+}
+
+@media screen and (max-width: 768px), (max-width: 1024px) {
+  #sobre {
+    padding: 65px 5%;
+  }
 
   .tituloSection {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    max-width: calc(50% - 2.5rem);
-    word-wrap: break-word;
+    max-width: 100%;
   }
+
   .container {
-    display: flex;
-    align-items: stretch;
+    flex-direction: column;
   }
 
   .wrapper {
-    --pading-wrapper: 2rem;
+    --pading-wrapper: 1rem;
+  }
 
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    flex: 1;
+  .esquerda,
+  .direita {
+    padding: var(--pading-wrapper);
   }
 
   .esquerda {
-    padding: var(--pading-wrapper) 0;
-    flex: 1;
-    margin: auto 0;
+    flex-direction: row;
+    overflow: auto;
   }
 
-  .direita {
-    padding: var(--pading-wrapper) 0;
-    flex: 1;
-    margin: auto 0;
-  }
-
-  .opcao {
-    display: flex;
+  .esquerda .opcao {
+    flex-direction: column;
     align-items: center;
-    gap: 1rem;
   }
 
   .quadrado {
-    width: 100px;
-    aspect-ratio: 1;
-    background: var(--cor-secundaria);
-    display: grid;
-    flex: 0 0 auto;
-    cursor: pointer;
-    border-radius: 5px;
-    place-items: center;
-    object-fit: center;
-    transition: 200ms;
-
-    svg {
-      width: 70%;
-      height: 70%;
-      stroke: var(--cor-branco);
-      stroke-width: 50px;
-    }
-
-    &:hover,
-    &:focus{
-      background: var(--cor-branco);
-      transform: scale(1.1);
-
-      svg {
-        stroke: var(--cor-preto);
-      }
-    }
-
-    &:active {
-      scale: 0.9; /* Diminui um pouco o tamanho quando clicado */
-    }
+    width: 80px;
   }
 
-  .ativado {
-    background: var(--cor-branco);
-    svg {
-      stroke: var(--cor-preto);
-    }
+  .opcaoTitulo {
+    font-size: 1rem;
   }
 
   .separador {
-    width: 5px;
-    background: var(--cor-branco);
-    margin: 0 2rem;
-    border-radius: 5px;
+display: none;
   }
 
-  .paragrafo {
-    position: relative;
-    background: var(--cor-secundaria);
-    padding: 1rem;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-  }
-
-  .paragrafos {
-    display: none;
-  }
-  .paragrafos.ativo {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .paragrafo::before {
-    font-family: "Days One", sans-serif;
-    content: "\201C";
-    font-size: 5rem;
-    color: var(--cor-branco);
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translateY(-35%);
-  }
-
-  .sobreBotao {
-    background: var(--cor-secundaria);
-    color: var(--cor-branco);
-    flex: 1;
+  .paragrafos.ativo > * {
+    width: 90%;
+    max-width: none;
     padding: 1rem 2rem;
-    border:0;
-    border-radius: 50px;
-    cursor: pointer;
-    font-size: 1.2rem;
-    text-align: left;
-    position: relative;
-    overflow: hidden;
-    transition: 300ms;
-  
-
-  &:hover,
-  &:focus {
-    background: var(--cor-branco);
-    color: var(--cor-primaria);
-    border-radius: 0;
+    border: 0;
   }
-  &:active {
-    border-radius: 50px;
-  }
-}
-
 
 
 }
