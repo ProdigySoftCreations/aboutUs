@@ -1,5 +1,5 @@
 .carrosselPrimario {
-  background: url(../assets/imgs/fundoCarrossel.jpg) no-repeat center center;
+  background: var(--cor-secundaria);
 }
 
 .carrosselPrimario-celula {
@@ -8,11 +8,10 @@
   height: 100svh;
 }
 
-/* position dots in carousel */
 .carrosselPrimario .flickity-page-dots {
   bottom: 30px;
 }
-/* white circles */
+
 .carrosselPrimario .flickity-page-dots .dot {
   height: 4px;
   width: 40%;
@@ -21,7 +20,7 @@
   transition: 200ms;
   background: black;
 }
-/* fill-in selected dot */
+
 .carrosselPrimario .dot.is-selected {
   background: var(--cor-branco);
   height: 6px;
@@ -32,14 +31,16 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 10%;
+  overflow: hidden;
 }
 
 .carrosselPrimario-titulo {
-  font-size: 2rem;
+  font-size: 5rem;
   color: var(--cor-branco);
 }
 
 .carrosselPrimario-descricao {
+  font-size: 1.5rem;
   color: var(--cor-branco);
   font-weight: 400;
   font-style: italic;
@@ -48,49 +49,83 @@
 .carrosselPrimario-button {
   background: var(--cor-secundaria);
   color: var(--cor-branco);
-  padding: 0 20px;
-  height: 50px;
+  height: 30px;
   width: 200px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: 200ms;
   text-transform: uppercase;
   font-weight: 600;
-  text-align: left;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 25px;
+  transition: 300ms;
+  & i{
+    transition: 200ms;
+  }
   &:hover {
     background: var(--cor-branco);
     color: var(--cor-secundaria);
-    scale: 1.1;
+    border-radius: 50px;
+    & i {
+      transform: translateX(5px);
+    }
   }
 }
 
-
+@keyframes textPop {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 
 /* Slide 1 */
 .a {
   background: var(--cor-secundaria);
 }
 
-.logoSVG {
-  width: 300px;
-  height: 300px;
+/* Animação para o primeiro slide (opcional, dependendo se você quer que o primeiro slide também tenha animação) */
+.a .carrosselPrimario-titulo {
+  animation: textPop 0.7s cubic-bezier(0.42, 0, 0, 0.99) forwards;
+}
 
-  & svg {
-    width: 100%;
-    height: 100%;
-  }
-  
-  & path {
-    --timer: 3s;
-    stroke: var(--cor-branco);
-    fill: var(--cor-branco);
-    stroke-width: 3px;
-    stroke-dasharray: 55;
-    stroke-dashoffset: 0;
-    animation: animateStroke var(--timer) linear infinite;
-    animation-direction: alternate;
-  }
+.a .carrosselPrimario-descricao {
+  animation: textPop 0.7s cubic-bezier(0.42, 0, 0, 0.99) 0.2s forwards;
+}
+
+.a .carrosselPrimario-button {
+  animation: textPop 0.7s cubic-bezier(0.42, 0, 0, 0.99) 0.6s forwards;
+}
+
+.logoSVG {
+  width: 400px;
+  height: 400px;
+}
+
+.logoSVG svg {
+  width: 100%;
+  height: 100%;
+}
+
+.logoSVG path {
+  --timer: 3s;
+  stroke: var(--cor-branco);
+  fill: var(--cor-branco);
+  stroke-width: 3px;
+  stroke-dasharray: 55;
+  stroke-dashoffset: 0;
+  animation: animateStroke var(--timer) linear infinite;
+  animation-direction: alternate;
 }
 
 @keyframes animateStroke {
@@ -104,13 +139,52 @@
 
 /* Slide 2 */
 .b {
-  background: var(--cor-primaria);
-  background: linear-gradient(var(--cor-primaria), var(--cor-primaria)),
-    url(../assets/imgs/placeholder.jpg) no-repeat center center;
-  background-blend-mode: multiply;
+  position: relative;
+  background-image: url(../assets/imgs/placeholder.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
   background-size: cover;
 }
 
+.b::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(
+    to right,
+    var(--cor-primaria),
+    var(--cor-secundaria)
+  );
+  opacity: 0.7;
+}
+
+/* Nao remover por questao do grandiante e imagem de fundo */
+.b .carrosselPrimario-texto {
+  position: relative;
+  z-index: 1;
+}
+
+.b .carrosselPrimario-titulo,
+.b .carrosselPrimario-descricao,
+.b .carrosselPrimario-button {
+  opacity: 0;
+  transform: translateX(100px);
+}
+
+.b.animate-once .carrosselPrimario-titulo {
+  animation: textPop 0.7s cubic-bezier(0.42, 0, 0, 0.99) forwards;
+}
+
+.b.animate-once .carrosselPrimario-descricao {
+  animation: textPop 0.7s cubic-bezier(0.42, 0, 0, 0.99) 0.2s forwards;
+}
+
+.b.animate-once .carrosselPrimario-button {
+  animation: textPop 0.7s cubic-bezier(0.42, 0, 0, 0.99) 0.4s forwards;
+}
 
 @media (max-width: 768px) {
   .carrosselPrimario-celula {
