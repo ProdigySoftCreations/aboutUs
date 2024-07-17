@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/carrosselPrimario.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/sobre.css">
+    <link rel="stylesheet" href="css/navbar.css">
 
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,7 +39,33 @@
 
 <body>
 
+    <!-- Barra de navegação -->
+    <nav class="navBar">
+        <div class="navBar-logo">
+            <a href="#home">
+                <img src="./assets/imgs/LogoBranca.svg" alt="Logo da ProdigySoft Creations">
+            </a>
+        </div> <!--navBar-logo-->
+        <div class="navBar-links">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </div> <!--navBar-links-->
 
+    <!--
+
+        <div class="navBar-hamburguer">
+            <i class="fas fa-bars"></i>
+        </div> <!--navBar-hamburguer
+    
+        -->
+    </nav> <!--navBar-->
+
+
+    <!-- Carrosel Primario -->
     <section id="carroselPrimario" id="home">
         <div class="carrosselPrimario"
             data-flickity='{"autoPlay": false, "pauseAutoPlayOnHover": false,  "prevNextButtons": false}'>
@@ -205,14 +232,12 @@
         </div>
     </section>
 
-
-
     <!-- Flickity -->
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
     <!-- JS -->
     <script src="js/carrosselPrincipal.js"></script>
-     <script src="js/sobre.js"></script>
+    <script src="js/sobre.js"></script>
 </body>
 
 </html>

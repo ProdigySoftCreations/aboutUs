@@ -1,0 +1,78 @@
+.navBar {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    height: 80px;
+    width: 100%;
+    background-color: rgba(51, 51, 51, 0.42);
+    color: white;
+    z-index: 1000;
+    box-shadow: 0px 0px 20px rgba(51, 51, 51, 0.84);
+}
+
+.navBar-logo {
+    width: 30%;
+    margin-left: 20px;
+    margin: auto 0 auto 20px;
+}
+
+.navBar-logo a img {
+    height: 65px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.navBar-logo a img:hover {
+    transform: scale(1.1);
+    transition: 200ms;
+    border-radius: 5px;
+}
+
+.navBar-links {
+    width: 30%;
+    margin-right: 20px;
+}
+
+.navBar-links ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+    list-style: none;
+    width: 100%;
+}
+
+.navBar-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: 200ms;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+    
+}
+
+.navBar-links a::after {
+    content: " ";
+    width: 0%;
+    height: 4px;
+    background-color: var(--cor-secundaria);
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    transition: 200ms ease-in-out;
+    border-radius: 4px;
+}
+
+.navBar-links a:hover::after {
+    width: 100%;
+}
+
+.navBar-links a:hover {
+    background-color: rgba(0, 0, 0, 0.28);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.56);
+    color: var(--cor-secundaria);
+}
