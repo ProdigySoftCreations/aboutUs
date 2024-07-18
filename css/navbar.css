@@ -1,9 +1,9 @@
+
 .navBar {
     position: fixed;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
     height: 80px;
     width: 100%;
     background-color: rgba(51, 51, 51, 0.42);
@@ -14,8 +14,8 @@
 
 .navBar-logo {
     width: 30%;
-    margin-left: 20px;
-    margin: auto 0 auto 20px;
+    margin-top: 5px;
+    margin-left: 2%;
 }
 
 .navBar-logo a img {
@@ -31,16 +31,11 @@
 }
 
 .navBar-links {
-    width: 30%;
-    margin-right: 20px;
-}
-
-.navBar-links ul {
     display: flex;
-    justify-content: space-between;
-    align-items: left;
+    justify-content: end;
     list-style: none;
-    width: 100%;
+    margin-right: 2%;
+    width: 50%;
 }
 
 .navBar-links a {
@@ -52,7 +47,7 @@
     padding: 10px;
     border-radius: 5px;
     position: relative;
-    
+    margin-left: 30px;
 }
 
 .navBar-links a::after {
@@ -75,4 +70,92 @@
     background-color: rgba(0, 0, 0, 0.28);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.56);
     color: var(--cor-secundaria);
+}
+
+/* Menu mobile */
+
+.navBar-hamburguer {
+    cursor: pointer;
+    display: none;
+}
+
+.navBar-hamburguer div {
+    width: 32px;
+    height: 4px;
+    margin: 8px 20px;
+    background-color: white;
+    transition: 300ms;
+    border-radius: 2px;
+}
+
+/* Responsivo */
+
+@media screen and (max-width: 999px) {
+    .navBar-links {
+        position: absolute;
+        top: 100px;
+        right: 0%;
+        margin: 0px -10px 0 0;
+        width: 50%;
+        height: 30vh;
+        background-color: rgba(51, 51, 51, 0.42);
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px rgba(51, 51, 51, 0.84);
+        flex-direction: column;
+        text-align: center;
+        justify-content: space-around;
+        transform: translateX(100%);
+        transition: transform 300ms ease-in;
+    }
+
+    .navBar-links li {
+        opacity: 0;
+    }
+
+    .navBar-links a {
+        margin: 0;
+    }
+
+    .navBar-hamburguer {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 270px) {
+    .navBar-links {
+        width: 100%;
+        margin: 0%;
+    }
+    
+}
+
+/* Animações */
+
+.navBar-links.active {
+    transform: translateX(0);
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+}
+
+.navBar-hamburguer.active .line1 {
+    transform: rotate(-45deg) translate(-8px, 8px);
+}
+
+.navBar-hamburguer.active .line2 {
+    opacity: 0;
+}
+
+.navBar-hamburguer.active .line3 {
+    transform: rotate(45deg) translate(-8px, -9px);
 }

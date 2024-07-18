@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -40,28 +40,31 @@
 <body>
 
     <!-- Barra de navegação -->
-    <nav class="navBar">
-        <div class="navBar-logo">
-            <a href="#home">
-                <img src="./assets/imgs/LogoBranca.svg" alt="Logo da ProdigySoft Creations">
-            </a>
-        </div> <!--navBar-logo-->
-        <div class="navBar-links">
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </div> <!--navBar-links-->
+     <div class="container">
 
-    <!--
+        
 
-        <div class="navBar-hamburguer">
-            <i class="fas fa-bars"></i>
-        </div> <!--navBar-hamburguer
-    
-        -->
+        <nav class="navBar">
+
+            <div class="navBar-logo">
+                <a href="#home">
+                    <img src="./assets/imgs/LogoBranca.svg" alt="Logo da ProdigySoft Creations">
+                </a>
+            </div> <!--navBar-logo-->
+
+            <div class="navBar-hamburguer">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div> <!--navBar-hamburguer -->
+
+                <ul class="navBar-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul> <!--navBar-links-->
+     </div> <!--container-->
     </nav> <!--navBar-->
 
 
@@ -238,6 +241,7 @@
     <!-- JS -->
     <script src="js/carrosselPrincipal.js"></script>
     <script src="js/sobre.js"></script>
+    <script src="js/navMobile.js"></script>
 </body>
 
 </html>
