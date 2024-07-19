@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/sobre.css">
     <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/btnTop.css">
 
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,14 +41,9 @@
 <body>
 
     <!-- Barra de navegação -->
-     <div class="container">
-
-        
-
         <nav class="navBar">
-
             <div class="navBar-logo">
-                <a href="#home">
+                <a href="index.html">
                     <img src="./assets/imgs/LogoBranca.svg" alt="Logo da ProdigySoft Creations">
                 </a>
             </div> <!--navBar-logo-->
@@ -64,12 +60,11 @@
                     <li><a href="#servicos">Serviços</a></li>
                     <li><a href="#contato">Contato</a></li>
                 </ul> <!--navBar-links-->
-     </div> <!--container-->
-    </nav> <!--navBar-->
+            </nav> <!--navBar-->
 
 
     <!-- Carrosel Primario -->
-    <section id="carroselPrimario" id="home">
+    <section id="home" >
         <div class="carrosselPrimario"
             data-flickity='{"autoPlay": false, "pauseAutoPlayOnHover": false,  "prevNextButtons": false}'>
 
@@ -235,10 +230,15 @@
         </div>
     </section>
 
+    <div class="btnTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
     <!-- Flickity -->
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
     <!-- JS -->
+    <script src="js/btnTop.js"></script>
     <script src="js/carrosselPrincipal.js"></script>
     <script src="js/sobre.js"></script>
     <script src="js/navMobile.js"></script>

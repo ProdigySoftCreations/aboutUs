@@ -3,6 +3,7 @@
   --cor-preto: #1a1a1a;
   --cor-primaria: #193445;
   --cor-secundaria: #c08e30;
+  --cor-terciaria: #0D0C1D;
   /* --cor-primaria: #013255;
   --cor-secundaria: #FF4365;
   --cor-terciaria: #0D0C1D; */
@@ -15,9 +16,11 @@
   max-width: 100%;
 }
 
-html body {
+html, body {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+  scroll-behavior: smooth;
+
 }
 
 /* Ocultar barras de rolagem em navegadores baseados em WebKit */

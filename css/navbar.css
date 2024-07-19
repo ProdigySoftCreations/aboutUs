@@ -1,41 +1,71 @@
 
 .navBar {
+    --height: 80px;
+
     position: fixed;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 80px;
+    height: var(--height);
     width: 100%;
-    background-color: rgba(51, 51, 51, 0.42);
+    background-color: rgba(51, 51, 51, 0.50);
     color: white;
     z-index: 1000;
-    box-shadow: 0px 0px 20px rgba(51, 51, 51, 0.84);
+    /* box-shadow: 0px 0px 10px rgba(51, 51, 51, 0.84); */
+    padding: 10px 10%;
+    backdrop-filter: blur(10px);
+    transition: 200ms;
+}
+
+.navBar.scroll {
+    --height: 60px;
+
+    height: var(--height);
+    background: white;
+    color: var(--cor-preto);
+
+    & a {
+        color: var(--cor-preto);
+        font-size: 1rem;
+    }
+
+    .navBar-logo a img {
+        filter: invert(1);
+        height: 50px;
+    }
+
+    &  .navBar-hamburguer div{
+        background: var(--cor-preto);
+    }
+
+    & .navBar-links.active {
+        background: inherit;
+        box-shadow: none;
+    }
+
+
 }
 
 .navBar-logo {
-    width: 30%;
-    margin-top: 5px;
-    margin-left: 2%;
+    width: 100%;
+    height: auto;
 }
 
 .navBar-logo a img {
-    height: 65px;
-    padding: 5px;
-    border-radius: 5px;
+    transition: 200ms;
+    height: 60px;
 }
 
 .navBar-logo a img:hover {
     transform: scale(1.1);
-    transition: 200ms;
-    border-radius: 5px;
 }
 
 .navBar-links {
     display: flex;
     justify-content: end;
-    list-style: none;
-    margin-right: 2%;
+    list-style: none;   
     width: 50%;
+    position: relative;
 }
 
 .navBar-links a {
@@ -91,21 +121,25 @@
 /* Responsivo */
 
 @media screen and (max-width: 999px) {
+    .navBar {
+        padding: 10px 5%;
+    } 
+
     .navBar-links {
         position: absolute;
-        top: 100px;
+        top: var(--height);
         right: 0%;
-        margin: 0px -10px 0 0;
         width: 50%;
         height: 30vh;
         background-color: rgba(51, 51, 51, 0.42);
-        border-radius: 10px;
-        box-shadow: 0px 0px 20px rgba(51, 51, 51, 0.84);
+        box-shadow: 0px 0px 10px rgba(51, 51, 51, 0.84);
+        border-radius: 0 0 0 10px;
         flex-direction: column;
         text-align: center;
         justify-content: space-around;
         transform: translateX(100%);
         transition: transform 300ms ease-in;
+        backdrop-filter: blur(10px);
     }
 
     .navBar-links li {
@@ -124,7 +158,6 @@
 @media screen and (max-width: 270px) {
     .navBar-links {
         width: 100%;
-        margin: 0%;
     }
     
 }

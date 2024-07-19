@@ -1,0 +1,42 @@
+.btnTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  opacity: 0;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(
+    to bottom right,
+    var(--cor-terciaria),
+    var(--cor-primaria)
+  );
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  overflow: hidden;
+  animation: blob 3s linear infinite;
+  transition: 200ms;
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
+  cursor: pointer;
+
+  &:hover {
+    scale: 1.1;
+  }
+}
+
+.btnTop.active {
+  opacity: 1;
+}
+@keyframes blob {
+  0%,
+  100% {
+    border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%;
+  }
+  34% {
+    border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+  }
+  67% {
+    border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+  }
+}
